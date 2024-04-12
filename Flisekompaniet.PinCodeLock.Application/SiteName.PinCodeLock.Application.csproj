@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Flisekompaniet.PinCodeLock.Domain\Flisekompaniet.PinCodeLock.Domain.csproj" />
+    <ProjectReference Include="..\Flisekompaniet.PinCodeLock.Domain\SiteName.PinCodeLock.Domain.csproj" />
   </ItemGroup>
 
 </Project>

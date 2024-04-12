@@ -1,5 +1,5 @@
-﻿using Flisekompaniet.PinCodeLock.Domain;
-using Flisekompaniet.PinCodeLock.Application;
+﻿using SiteName.PinCodeLock.Application;
+using SiteName.PinCodeLock.Domain;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,8 +8,8 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddRazorPages();
 
-builder.Services.AddSingleton<IPinCodeRepository, FakePinCodeRepository>(); 
-builder.Services.AddPinCode();
+//INFO: add pin code service
+builder.Services.AddPinCode<FakePinCodeRepository>();
 
 
 var app = builder.Build();
@@ -31,6 +31,7 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
+//INFO: add use pin code middleware
 app.UsePinCode();
 
 app.MapControllerRoute(

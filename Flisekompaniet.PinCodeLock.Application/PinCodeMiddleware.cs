@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace Flisekompaniet.PinCodeLock.Application;
+namespace SiteName.PinCodeLock.Application;
 
 public class PinCodeMiddleware : IMiddleware
 {
@@ -16,22 +16,22 @@ public class PinCodeMiddleware : IMiddleware
 
     public async Task InvokeAsync(HttpContext context, RequestDelegate next)
     {
-        if ((context.User?.Identity?.IsAuthenticated ?? false))
+        if (context.User?.Identity?.IsAuthenticated ?? false)
         {
             await next.Invoke(context);
             return;
         }
 
-        if (context.Request.Path.Equals(PinCodePagePath, StringComparison.InvariantCultureIgnoreCase) || 
-            context.Request.Path.StartsWithSegments("api", StringComparison.InvariantCultureIgnoreCase) || 
-            context.Request.Path.StartsWithSegments("system", StringComparison.InvariantCultureIgnoreCase) ||
-            context.Request.Path.StartsWithSegments("health", StringComparison.InvariantCultureIgnoreCase))
+        if (context.Request.Path.Equals(PinCodePagePath, StringComparison.InvariantCultureIgnoreCase) ||
+            context.Request.Path.StartsWithSegments("/api", StringComparison.InvariantCultureIgnoreCase) ||
+            context.Request.Path.StartsWithSegments("/system", StringComparison.InvariantCultureIgnoreCase) ||
+            context.Request.Path.StartsWithSegments("/health", StringComparison.InvariantCultureIgnoreCase))
         {
             await next.Invoke(context);
             return;
         }
 
-        var hasPinCode = context.Request.Headers.TryGetValue(PinCodeHeader, out var pinCode); 
+        var hasPinCode = context.Request.Headers.TryGetValue(PinCodeHeader, out var pinCode);
         if (hasPinCode && _pinCodeService.IsValid(pinCode))
         {
             await next.Invoke(context);

@@ -1,6 +1,6 @@
-﻿using Flisekompaniet.PinCodeLock.Application;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using SiteName.PinCodeLock.Application;
 
 namespace Article.Presentation.MyFeature.Pages;
 

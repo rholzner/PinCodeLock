@@ -1,4 +1,4 @@
-namespace Flisekompaniet.PinCodeLock.Example.Models;
+namespace SiteName.PinCodeLock.Example.Models;
 
 public class ErrorViewModel
 {

@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Flisekompaniet.PinCodeLock.WebUi\Flisekompaniet.PinCodeLock.WebUi.csproj" />
+    <ProjectReference Include="..\Flisekompaniet.PinCodeLock.WebUi\SiteName.PinCodeLock.WebUi.csproj" />
   </ItemGroup>
 
 </Project>

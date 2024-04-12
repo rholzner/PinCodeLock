@@ -1,8 +1,8 @@
-using System.Diagnostics;
+using SiteName.PinCodeLock.Example.Models;
 using Microsoft.AspNetCore.Mvc;
-using Flisekompaniet.PinCodeLock.Example.Models;
+using System.Diagnostics;
 
-namespace Flisekompaniet.PinCodeLock.Example.Controllers;
+namespace SiteName.PinCodeLock.Example.Controllers;
 
 public class HomeController : Controller
 {

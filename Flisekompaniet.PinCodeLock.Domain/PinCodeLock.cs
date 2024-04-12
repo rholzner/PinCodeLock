@@ -1,4 +1,4 @@
-﻿namespace Flisekompaniet.PinCodeLock.Domain;
+﻿namespace SiteName.PinCodeLock.Domain;
 
 public class PinCodeLock
 {

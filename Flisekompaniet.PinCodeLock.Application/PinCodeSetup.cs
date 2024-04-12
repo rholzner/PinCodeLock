@@ -1,8 +1,8 @@
-﻿using Flisekompaniet.PinCodeLock.Domain;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using SiteName.PinCodeLock.Domain;
 
-namespace Flisekompaniet.PinCodeLock.Application;
+namespace SiteName.PinCodeLock.Application;
 
 public static class PinCodeSetup
 {

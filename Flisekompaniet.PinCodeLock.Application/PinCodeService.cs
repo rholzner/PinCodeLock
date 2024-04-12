@@ -1,7 +1,7 @@
-﻿using Flisekompaniet.PinCodeLock.Domain;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
+using SiteName.PinCodeLock.Domain;
 
-namespace Flisekompaniet.PinCodeLock.Application;
+namespace SiteName.PinCodeLock.Application;
 public interface IPinCodeService
 {
     bool IsValid(string kode);
