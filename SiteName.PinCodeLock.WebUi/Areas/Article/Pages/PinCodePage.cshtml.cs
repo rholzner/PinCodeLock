@@ -30,7 +30,19 @@ public class PinCodePage : PageModel
 
         if (_pinCodeService.SetPinCodeIfValid(PinCode, this.HttpContext))
         {
-            return Redirect("/");
+            var returnUrl = Request.Query["returnUrl"];
+
+            if (string.IsNullOrEmpty(returnUrl))
+            {
+                returnUrl = "/";
+            }
+
+            var restOfQueries = string.Join('&', Request.Query.Where(x => x.Key != "returnUrl").Select(x => $"{x.Key}={x.Value}"));
+            if (!string.IsNullOrEmpty(restOfQueries))
+            {
+                returnUrl = returnUrl + $"?{restOfQueries}";
+            }
+            return Redirect(returnUrl);
         }
 
         return Page();

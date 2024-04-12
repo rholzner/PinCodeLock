@@ -16,7 +16,7 @@ public class PinCodeMiddleware : IMiddleware
 
     public async Task InvokeAsync(HttpContext context, RequestDelegate next)
     {
-        if (context.User?.Identity?.IsAuthenticated ?? false)
+        if ((context.User?.Identity?.IsAuthenticated ?? false))
         {
             await next.Invoke(context);
             return;
@@ -45,7 +45,19 @@ public class PinCodeMiddleware : IMiddleware
             return;
         }
 
+
+        var oldPath = context.Request.Path;
+        string oldQueryString = context.Request.QueryString.Value;
+
+        if (oldQueryString?.StartsWith("?") ?? false)
+        {
+            //INFO: remove the first character '?' and replace with '&'
+            oldQueryString = $"&{oldQueryString.Substring(1)}";
+        }
+
+        var pathToRedirect = $"{PinCodePagePath}?returnUrl={oldPath}{oldQueryString}";
+
         context.Response.StatusCode = StatusCodes.Status403Forbidden;
-        context.Response.Redirect(PinCodePagePath, false);
+        context.Response.Redirect(pathToRedirect, false);
     }
 }
