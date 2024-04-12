@@ -19,7 +19,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Flisekompaniet.PinCodeLock.Application\SiteName.PinCodeLock.Application.csproj" />
+        <ProjectReference Include="..\SiteName.PinCodeLock.Application\SiteName.PinCodeLock.Application.csproj" />
     </ItemGroup>
 
 </Project>
