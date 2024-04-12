@@ -1,0 +1,12 @@
+﻿@page "/system/PinCode"
+@model Article.Presentation.MyFeature.Pages.PinCodePage
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<div class="shadow-lg p-3 mb-5 bg-white rounded" style="margin-top:20%">
+    <form class="form-signin" method="post"> 
+        <h1 class="h3 mb-3 font-weight-normal">Logg inn med pinkode</h1>
+        <label for="inputPinCode" class="sr-only">Pin kode</label>
+        <input type="password" id="inputPinCode" class="form-control" style="margin-top:2%" asp-for="PinCode" placeholder="Pinkode" required="" autofocus="">
+        <button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-top:2%">Logg Inn</button>
+    </form>
+</div>
